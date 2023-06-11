@@ -1,6 +1,7 @@
 # Card Info
 
 Live App - [https://release.d2yz97vh72k9e7.amplifyapp.com/]
+<br/>
 GitHub Link - [https://github.com/apurvathakker9/add-card-flexmoney]
 
 ## Introduction
@@ -14,7 +15,7 @@ The web application is designed to collect card (Debit/Credit) details from user
 Once the user submits the information, it is sent to an API for processing. The API then responds with a success or failure status to indicate the outcome of the request. Based on the response received, the application displays a corresponding message to the user.
 
 ## Framework for the app
-The app is built using Preact, a lightweight JavaScript library for frontend applications. The project was created using preact-cli, which provides a streamlined development environment for Preact projects. TypeScript is used as the programming language for developing the project, adding type safety and enhanced tooling support
+The app is built using Preact, a lightweight JavaScript library for frontend applications. The project was created using preact-cli, which provides a streamlined development environment for Preact projects. TypeScript is used as the programming language for developing the project, adding type safety and enhanced tooling support.
 
 
 ## Reason for choosing Preact
