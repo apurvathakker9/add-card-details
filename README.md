@@ -4,6 +4,9 @@ Live App - [https://release.d2yz97vh72k9e7.amplifyapp.com/]
 <br/>
 GitHub Link - [https://github.com/apurvathakker9/add-card-flexmoney]
 
+## Demo
+![demo](demo.gif)
+
 ## Introduction
 The web application is designed to collect card (Debit/Credit) details from users who visit the app. Users are required to provide the following information:
 - Card Holder's Name
