@@ -1,4 +1,4 @@
-# Card Info
+# Add Card Info
 
 Live App - [https://release.d2yz97vh72k9e7.amplifyapp.com/]
 <br/>
