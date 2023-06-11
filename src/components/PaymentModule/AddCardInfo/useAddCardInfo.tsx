@@ -8,11 +8,12 @@ const SERVER_URL = 'https://run.mocky.io/v3/0b14a8da-5fc7-4443-8511-53d687399bc9
 interface userAddCardInfoProps{
   setLoading: StateUpdater<boolean>;
   addCardCallback: (res)=>void
+  setIssuerImage: StateUpdater<string>
 }
 
 const useAddCardInfo = (props: userAddCardInfoProps) => {
 
-  const { setLoading, addCardCallback } = props;
+  const { setLoading, addCardCallback, setIssuerImage } = props;
 
   const formSchema = z.object({
     cardHolderName: z.string().min(1, "Please enter Card Holder Name"),
@@ -80,6 +81,7 @@ const useAddCardInfo = (props: userAddCardInfoProps) => {
       })
       .then((res) => {
         reset(addCardForm);
+        setIssuerImage(null);
         addCardCallback(res.data);
       })
       .catch((err) => {

@@ -29,6 +29,7 @@ const AddCardInfo = (props: AddCardInfoProps) => {
   const { handleFormSubmit, Form, Field, addCardForm } = useAddCardInfo({
     setLoading: setLoading,
     addCardCallback: addCardCallback,
+    setIssuerImage: setIssuerImage
   });
 
   const debouncedFunc = debounce(function (field: string) {
