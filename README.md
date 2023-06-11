@@ -38,6 +38,9 @@ When handling sensitive data like credit/debit card information, it is crucial t
 
 
 ## Dev
+
+use Node version - 18.1.0
+
 ### CLI Commands
 
 - `npm install`: Installs dependencies
