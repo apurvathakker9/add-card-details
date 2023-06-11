@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { SubmitHandler,FormError } from "@modular-forms/preact";
+import { SubmitHandler,FormError, useForm, zodForm, reset } from "@modular-forms/preact";
 import axios from "axios";
 import { StateUpdater } from "preact/hooks";
 
@@ -28,7 +28,18 @@ const useAddCardInfo = (props: userAddCardInfoProps) => {
       })
       .min(new Date().getFullYear(), "Please check the date again."),
     cvv: z.string().min(3,'CVV must be alteast 3 chracters').max(4,'CVV cannot be more than 4 characters'),
-  });  
+  });
+
+  const [addCardForm, { Form, Field }] = useForm<z.infer<typeof formSchema>>({
+    initialValues:{
+      cardHolderName: '',
+      cvv: '',
+      expiryMonth: undefined,
+      expiryYear: undefined,
+      cardNumber:''
+    },
+    validate: zodForm(formSchema),
+  });
 
   const handleFormSubmit: SubmitHandler<z.infer<typeof formSchema>> = (value, event) => {
     // Modify the card Number by removing the spaces and check against the regEx to see if the format is correct
@@ -68,6 +79,7 @@ const useAddCardInfo = (props: userAddCardInfoProps) => {
         },
       })
       .then((res) => {
+        reset(addCardForm);
         addCardCallback(res.data);
       })
       .catch((err) => {
@@ -83,8 +95,10 @@ const useAddCardInfo = (props: userAddCardInfoProps) => {
   };
 
   return {
-    formSchema,
     handleFormSubmit,
+    Form,
+    Field,
+    addCardForm,
   };
 };
 

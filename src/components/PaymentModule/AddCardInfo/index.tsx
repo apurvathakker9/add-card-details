@@ -1,8 +1,7 @@
 import { Fragment, h } from "preact";
 import AcceptedPaymentComponent from "../../reusable/AcceptedPaymentsComponent";
 import useAddCardInfo from "./useAddCardInfo";
-import { useForm, zodForm, toCustom, setValue } from "@modular-forms/preact";
-import { z } from "zod";
+import { toCustom, setValue } from "@modular-forms/preact";
 import TextField from "../../reusable/form-elements/TextField";
 import { useState } from "preact/hooks";
 import {
@@ -27,7 +26,7 @@ const AddCardInfo = (props: AddCardInfoProps) => {
 
   const [loading, setLoading] = useState<boolean>(false);
   const [issuerImage, setIssuerImage] = useState<string | null>(null);
-  const { formSchema, handleFormSubmit } = useAddCardInfo({
+  const { handleFormSubmit, Form, Field, addCardForm } = useAddCardInfo({
     setLoading: setLoading,
     addCardCallback: addCardCallback,
   });
@@ -37,10 +36,6 @@ const AddCardInfo = (props: AddCardInfoProps) => {
       setIssuerImage(getIssuerImage(getIssuerNameFromCardNumber(field)));
     }
   }, 200);
-
-  const [addCardForm, { Form, Field }] = useForm<z.infer<typeof formSchema>>({
-    validate: zodForm(formSchema),
-  });
 
   return (
     <>
