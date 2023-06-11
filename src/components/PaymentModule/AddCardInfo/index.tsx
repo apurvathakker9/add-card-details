@@ -114,6 +114,7 @@ const AddCardInfo = (props: AddCardInfoProps) => {
                         error={field.error}
                         label="Month"
                         placeholder="MM"
+                        type="tel"
                         onInput={(e) => {
                           setValue(
                             addCardForm,
@@ -135,6 +136,7 @@ const AddCardInfo = (props: AddCardInfoProps) => {
                         error={field.error}
                         label="Year"
                         placeholder="YYYY"
+                        type="tel"
                         required
                         onInput={(e) => {
                           setValue(
